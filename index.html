@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" href="css/styles.css" rel="stylesheet" />
+    <script src="js/scripts.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="rubrics-menu">
+            <div class="title">Категории</div>
+            <div class="main-title main" onclick="getLayout('main')">Главная</div>
+            <div class="main-title work" onclick="getLayout('work')">О работе</div>
+            <div class="main-title other" onclick="getLayout('other')">Общее</div>
+            <div class="main-title javascript" onclick="getLayout('javascript')">JavaScript</div>
+            <div class="main-title oop" onclick="getLayout('oop')">ООП</div>
+            <div class="main-title django" onclick="getLayout('django')">React</div>
+            <div class="main-title async" onclick="getLayout('async')">Асинхронность</div>
+            <div class="main-title tests" onclick="getLayout('tests')">Тестирование</div>
+            <div class="main-title css" onclick="getLayout('css')">CSS</div>
+            <div class="main-title html" onclick="getLayout('html')">HTML</div>
+            <div class="main-title git" onclick="getLayout('git')">Git</div>
+            <div class="main-title build_tools" onclick="getLayout('build_tools')">Сборщики проектов</div>
+            <div class="main-title algorithms" onclick="getLayout('algorithms')">Алгоритмы</div>
+        </div>
+        <div class="content-box">
+            <div class="questions-menu">
+                <div class="title">Каталог вопросов</div>
+                <div class="questions-container"></div>
+            </div>
+            <div class="answer-and-question">
+                <div class="title">Вопрос</div>
+                <div class="question"></div>
+                <div class="title">Ответ</div>
+                <div class="answer"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var category = sessionStorage.getItem("category");
+
+        if (!category || category == 'main') {
+            // делаем категорию визуально выбранной
+            document.getElementsByClassName('main')[0].classList.add('select');
+
+            // удаляем контейнер для вопросов/ответов
+            document.getElementsByClassName('content-box')[0].remove();
+
+            // добавляем контент главной страницы
+            document.getElementsByClassName('main-container')[0].innerHTML += mainText;
+        } else {
+            // заполняем список вопросов
+            getQuestionsList(category);
+
+            // делаем категорию визуально выбранной
+            document.getElementsByClassName(category)[0].classList.add('select');
+
+            // прописываем стиль последнему вопросу в списке
+            var questions = document.getElementsByClassName('question-in-menu');
+            var lastQuestion = questions[questions.length - 1];
+            lastQuestion.classList.add("last-question");
+
+            // заполняем первый вопрос и ответ
+            getAnswer(category, 1);
+        }
+    </script>
+</body>
+</html>
