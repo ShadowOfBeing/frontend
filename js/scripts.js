@@ -18,6 +18,12 @@ answersAndQuestions = {
     'javascript': {
         1: {'question': 'Что такое async и await в JavaScript?',
             'answer': `javascript answer 1`},
+        2: {'question': 'Какие методы есть у classList?',
+            'answer': `- add<br>
+                       - remove<br>
+                       - replace<br>
+                       - toggle<br>
+                       - contains<br>`},
     },
     'async': {
         1: {'question': 'Как устроена асинхронность в React?',
@@ -113,6 +119,10 @@ answersAndQuestions = {
         5: {'question': 'Как вы изучали программирование?', 'answer': 'other answer 6'},
         6: {'question': 'Какие существуют инструменты для оптимизации кода в React проектах?',
             'answer': `other answer 6`},
+        7: {'question': 'Как сделать раскрывающийся блок со вложенными блоками?', 'answer': 'other answer 7'},
+        8: {'question': 'Что такое Pixel Perfect?', 'answer': 'other answer 8'},
+        9: {'question': 'Что такое Mobile First?', 'answer': 'other answer 9'},
+        10: {'question': 'Что такое адаптивная вёрстка? За счёт чего она реализуется', 'answer': 'other answer 10'},
     },
     'build_tools': {
         1: {'question': 'Какие существуют сборщики проектов?', 'answer': 'WebPack, Gulp, Grunt'},
@@ -123,7 +133,9 @@ answersAndQuestions = {
         2: {'question': `Почему React называют реактивным фреймворком?`, 'answer': 'react answer 2'},
     },
     'html': {
-        1: {'question': 'html answer 1', 'answer': 'html answer 1'},
+        1: {'question': 'В каких случаях нужно использовать class, а в каких id? Назовите плюсы и минусы обоих подходов',
+            'answer': `- при использовании class можно использовать методы classList, в том числе управлять состоянием
+                       элемента (например скрыть или отобразить) за счёт добавления дополнительных классов`},
         2: {'question': `html answer 2`, 'answer': 'html answer 2'},
     },
     'css': {
@@ -133,6 +145,11 @@ answersAndQuestions = {
         4: {'question': `Что такое медиа запросы?`, 'answer': 'css answer 4'},
         5: {'question': `Что такое hover?`, 'answer': 'css answer 5'},
         6: {'question': `Что такое after/before?`, 'answer': 'css answer 6'},
+        7: {'question': `Как сделать скругление только определённого угла у элемента?`,
+            'answer': `- border-top-left-radius<br>
+                       - border-top-right-radius<br>
+                       - border-bottom-left-radius<br>
+                       - border-bottom-right-radius<br>`},
     },
 }
 
