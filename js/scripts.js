@@ -24,6 +24,22 @@ answersAndQuestions = {
                        - replace<br>
                        - toggle<br>
                        - contains<br>`},
+        3: {'question': 'В чём разница в JavaScript между var, let, const?',
+            'answer': `javascript answer 3`},
+        4: {'question': 'В каком случае в JavaScript коде нужно ставить ; в конце строки?',
+            'answer': `Если этот код пишется в теге script в html, либо он будет встраиваться в html страницу.`},
+        5: {'question': 'Что такое полифилы?',
+            'answer': `Полифилы - это функции JavaScript, которые обычно используются для создания совместимости с
+                       браузерами, которые не поддерживают определенные функции JavaScript.`},
+        6: {'question': 'Что такое шимы?',
+            'answer': `В отличие от полифилов, шимы являются функциями JavaScript, которые используются для модификации
+                       или изменения поведения существующих функций. Шимы часто используются во фреймворках и библиотеках
+                       JavaScript, чтобы расширить возможности существующих функций и сделать их более совместимыми с
+                       различными браузерами и платформами.`},
+        7: {'question': 'Какие отличия в версиях JS 5 и 6?',
+            'answer': `javascript answer 7`},
+        8: {'question': 'Как в JavaScript поделить нацело?',
+            'answer': `С помощью оператора ~~. Например запись ~~(9 / 4) вернёт 2.`},
     },
     'async': {
         1: {'question': 'Как устроена асинхронность в React?',
@@ -122,7 +138,11 @@ answersAndQuestions = {
         7: {'question': 'Как сделать раскрывающийся блок со вложенными блоками?', 'answer': 'other answer 7'},
         8: {'question': 'Что такое Pixel Perfect?', 'answer': 'other answer 8'},
         9: {'question': 'Что такое Mobile First?', 'answer': 'other answer 9'},
-        10: {'question': 'Что такое адаптивная вёрстка? За счёт чего она реализуется', 'answer': 'other answer 10'},
+        10: {'question': 'Что такое адаптивная вёрстка? За счёт чего она реализуется?', 'answer': 'other answer 10'},
+        11: {'question': `Есть родительский и дочерний элементы, дочерний частично перекрывает родительский. У обоих
+                          элементов установлены обработчики событий. Как сделать так, чтобы при клике на дочерний элемент
+                          обрабатывался только клик по нему, не распространяясь на родителя?`,
+             'answer': `Нужно в обработчике дочернего элемента прописать event.stopPropagation()`},
     },
     'build_tools': {
         1: {'question': 'Какие существуют сборщики проектов?', 'answer': 'WebPack, Gulp, Grunt'},
@@ -131,12 +151,39 @@ answersAndQuestions = {
     'react': {
         1: {'question': 'Какой принцип работы React?', 'answer': 'react answer 1'},
         2: {'question': `Почему React называют реактивным фреймворком?`, 'answer': 'react answer 2'},
+        3: {'question': `Какие хуки React вы знаете?`, 'answer': 'react answer 3'},
+        4: {'question': `Что такое useMemo?`, 'answer': 'react answer 4'},
     },
     'html': {
         1: {'question': 'В каких случаях нужно использовать class, а в каких id? Назовите плюсы и минусы обоих подходов',
             'answer': `- при использовании class можно использовать методы classList, в том числе управлять состоянием
                        элемента (например скрыть или отобразить) за счёт добавления дополнительных классов`},
-        2: {'question': `html answer 2`, 'answer': 'html answer 2'},
+        2: {'question': `Как родительскому элементу добавить дочерний элемент самым первым? А самым последним?`,
+            'answer': `Добавить дочерний элемент самым первым (2 способа):<br>
+                       - parentElement.insertBefore(newElement, parentElement.firstChild) - newElement передаём в
+                       качестве объекта Node<br>
+                       - parentElement.insertAdjacentHTML('afterbegin', newElement) - newElement передаём в качестве строки<br>
+
+                       Добавить дочерний элемент самым последним (2 способа):<br>
+                       - parentElement.appendChild(newElement) - newElement передаём в качестве объекта Node<br>
+                       - parentElement.insertAdjacentHTML('beforeend', newElement) - newElement передаём в качестве строки`},
+        3: {'question': `Какие виды позиционирования элементов существуют?`,
+            'answer': `static (статическое позиционирование) - это значение по умолчанию, элемент позиционируется в
+                       соответствии с нормальным потоком документа. Свойства top, bottom, left, right и z-index игнорируются.
+                       <br>
+                       relative (относительное позиционирование) - элемент смещается относительно своего нормального
+                       положения. При этом координаты top, bottom, left, right указывают смещение относительно исходного
+                       положения. Если элементу задано свойство position: relative, то z-index также начинает действовать.
+                       <br>
+                       absolute (абсолютное позиционирование) - элемент позиционируется относительно ближайшего
+                       родительского элемента с позиционированием (relative, absolute, fixed). Если родительского элемента
+                       не существует, то относительно body. При этом координаты top, bottom, left, right указывают расстояние
+                       до соответствующей границы родительского элемента. Если элементу задано свойство position: absolute,
+                       то z-index также начинает действовать.
+                       <br>
+                       fixed (фиксированное позиционирование) - элемент фиксируется относительно окна браузера. При этом
+                       координаты top, bottom, left, right указывают расстояние до соответствующей границы окна браузера.
+                       Если элементу задано свойство position: fixed, то z-index также начинает действовать.`},
     },
     'css': {
         1: {'question': 'Что такое css-препроцессоры?', 'answer': 'css answer 1'},
@@ -150,6 +197,18 @@ answersAndQuestions = {
                        - border-top-right-radius<br>
                        - border-bottom-left-radius<br>
                        - border-bottom-right-radius<br>`},
+        8: {'question': `Как можно сделать неровные края у блока?`,
+            'answer': 'С помощью clip-path'},
+        9: {'question': `Как сделать так, чтобы изображение масштабировалось с сохранением оригинальных пропорций?`,
+            'answer': 'Необходимо элементу изображения прописать стиль object-fit: scale-down;'},
+    },
+    'typescript': {
+        1: {'question': 'вопрос 1', 'answer': 'TypeScript answer 1'},
+        2: {'question': `вопрос 2`, 'answer': 'TypeScript answer 2'},
+    },
+    'jQuery': {
+        1: {'question': 'вопрос 1', 'answer': 'jQuery answer 1'},
+        2: {'question': `вопрос 2`, 'answer': 'jQuery answer 2'},
     },
 }
 
@@ -161,7 +220,9 @@ function getAnswer(category, answerID) {
 
     question.innerHTML = answersAndQuestions[category][answerID]['question']
     answer.innerHTML = answersAndQuestions[category][answerID]['answer']
-    prevSelectQ.classList.remove('select-question')
+    if (prevSelectQ) {
+        prevSelectQ.classList.remove('select-question')
+    }
 
     questionInMenu.classList.add('select-question')
     sessionStorage.setItem('prevSelectQuestion', 'question ' + answerID)
@@ -179,11 +240,8 @@ function getQuestionsList(category) {
 function getLayout(category) {
     // сохраняем категорию в объекте sessionStorage браузера
     sessionStorage.setItem("category", category)
-    // открываем страницу шаблона
-    // window.location.href = window.location.href.replace("index.html", "layout.html").replace("index", "layout")
+    // обновляем страницу
     window.location.href = window.location.href
-
-    //if (category == 'main') {}
 }
 
 var mainText = `
