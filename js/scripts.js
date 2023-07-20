@@ -153,6 +153,7 @@ answersAndQuestions = {
         2: {'question': `Почему React называют реактивным фреймворком?`, 'answer': 'react answer 2'},
         3: {'question': `Какие хуки React вы знаете?`, 'answer': 'react answer 3'},
         4: {'question': `Что такое useMemo?`, 'answer': 'react answer 4'},
+        5: {'question': `Что такое state? В каких случаях его стоит использовать`, 'answer': 'react answer 5'},
     },
     'html': {
         1: {'question': 'В каких случаях нужно использовать class, а в каких id? Назовите плюсы и минусы обоих подходов',
@@ -184,6 +185,9 @@ answersAndQuestions = {
                        fixed (фиксированное позиционирование) - элемент фиксируется относительно окна браузера. При этом
                        координаты top, bottom, left, right указывают расстояние до соответствующей границы окна браузера.
                        Если элементу задано свойство position: fixed, то z-index также начинает действовать.`},
+        4: {'question': `Как вставить на страницу элемент в виде узла Node? А как в виде строки?`,
+            'answer': `В виде узла через parentElement.insertBefore() или parentElement.appendChild(), а в виде строки
+                       через parentElement.insertAdjacentHTML()`},
     },
     'css': {
         1: {'question': 'Что такое css-препроцессоры?', 'answer': 'css answer 1'},
@@ -201,6 +205,7 @@ answersAndQuestions = {
             'answer': 'С помощью clip-path'},
         9: {'question': `Как сделать так, чтобы изображение масштабировалось с сохранением оригинальных пропорций?`,
             'answer': 'Необходимо элементу изображения прописать стиль object-fit: scale-down;'},
+        10: {'question': `Расскажите про css-селекторы +, ~ и >`, 'answer': 'css answer 10'},
     },
     'typescript': {
         1: {'question': 'вопрос 1', 'answer': 'TypeScript answer 1'},
