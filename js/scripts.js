@@ -40,6 +40,23 @@ answersAndQuestions = {
             'answer': `javascript answer 7`},
         8: {'question': 'Как в JavaScript поделить нацело?',
             'answer': `С помощью оператора ~~. Например запись ~~(9 / 4) вернёт 2.`},
+        9: {'question': 'Каким образом можно назначить функцию событию нажатия кнопки?',
+            'answer': `1) Можно назначить функцию событию непосредственно в атрибуте HTML:<br>
+                       <-button onclick="myFunction()"->Нажми на меня<-/button-><br>
+                       2) Можно использовать метод addEventListener в теге <-script->:<br>
+                       <-button id="myButton"->Нажми на меня<-/button-><br>
+                       <br>
+                       <-script-><br>
+                       <2s>const myButton = document.getElementById("myButton");<br>
+                       <br>
+                       <2s>myButton.addEventListener("click", function() {<br>
+                       <2s><2s>console.log("Кнопка была нажата");<br>
+                       <2s>});<br>
+                       <-/script-><br>
+                       <br>
+                       Используя оба этих способа можно присвоить событию нажатия кнопки сразу несколько функций.
+                       Первой будет выполнена функция прописанная в теге самого элемента, а уже затем выполнится функция,
+                       прописанная в обработчике <rf>addEventListener<rf>.`},
     },
     'async': {
         1: {'question': 'Как устроена асинхронность в React?',
@@ -128,18 +145,20 @@ answersAndQuestions = {
         3: {'question': 'git question 3', 'answer': 'git answer 3'},
     },
     'other': {
-        1: {'question': 'Что такое REST?', 'answer': 'other answer 1'},
-        2: {'question': 'Что такое KISS?', 'answer': 'other answer 2'},
-        3: {'question': 'Что такое DRY?', 'answer': 'other answer 3'},
-        4: {'question': 'Что такое монолит и микросервисы?', 'answer': 'other answer 5'},
-        5: {'question': 'Как вы изучали программирование?', 'answer': 'other answer 6'},
-        6: {'question': 'Какие существуют инструменты для оптимизации кода в React проектах?',
+        1: {'question': 'Ссылки на материалы для изучения',
+            'answer': `1) <a href="https://yourwaytoit.ru/termins/Frontend/Общее/first/" target="_blank">Термины Frontend</a>`},
+        2: {'question': 'Что такое REST?', 'answer': 'other answer 1'},
+        3: {'question': 'Что такое KISS?', 'answer': 'other answer 2'},
+        4: {'question': 'Что такое DRY?', 'answer': 'other answer 3'},
+        5: {'question': 'Что такое монолит и микросервисы?', 'answer': 'other answer 5'},
+        6: {'question': 'Как вы изучали программирование?', 'answer': 'other answer 6'},
+        7: {'question': 'Какие существуют инструменты для оптимизации кода в React проектах?',
             'answer': `other answer 6`},
-        7: {'question': 'Как сделать раскрывающийся блок со вложенными блоками?', 'answer': 'other answer 7'},
-        8: {'question': 'Что такое Pixel Perfect?', 'answer': 'other answer 8'},
-        9: {'question': 'Что такое Mobile First?', 'answer': 'other answer 9'},
-        10: {'question': 'Что такое адаптивная вёрстка? За счёт чего она реализуется?', 'answer': 'other answer 10'},
-        11: {'question': `Есть родительский и дочерний элементы, дочерний частично перекрывает родительский. У обоих
+        8: {'question': 'Как сделать раскрывающийся блок со вложенными блоками?', 'answer': 'other answer 7'},
+        9: {'question': 'Что такое Pixel Perfect?', 'answer': 'other answer 8'},
+        10: {'question': 'Что такое Mobile First?', 'answer': 'other answer 9'},
+        11: {'question': 'Что такое адаптивная вёрстка? За счёт чего она реализуется?', 'answer': 'other answer 10'},
+        12: {'question': `Есть родительский и дочерний элементы, дочерний частично перекрывает родительский. У обоих
                           элементов установлены обработчики событий. Как сделать так, чтобы при клике на дочерний элемент
                           обрабатывался только клик по нему, не распространяясь на родителя?`,
              'answer': `Нужно в обработчике дочернего элемента прописать event.stopPropagation()`},
@@ -192,7 +211,7 @@ answersAndQuestions = {
     'css': {
         1: {'question': 'Что такое css-препроцессоры?', 'answer': 'css answer 1'},
         2: {'question': `Как сделать анимацию в css?`, 'answer': 'css answer 2'},
-        3: {'question': `Что такое переменные в css?`, 'answer': 'css answer 3'},
+        3: {'question': `Как создавать переменные в css?`, 'answer': 'css answer 3'},
         4: {'question': `Что такое медиа запросы?`, 'answer': 'css answer 4'},
         5: {'question': `Что такое hover?`, 'answer': 'css answer 5'},
         6: {'question': `Что такое after/before?`, 'answer': 'css answer 6'},
@@ -225,6 +244,10 @@ function getAnswer(category, answerID) {
 
     question.innerHTML = answersAndQuestions[category][answerID]['question']
     answer.innerHTML = answersAndQuestions[category][answerID]['answer']
+    .replaceAll('<2s>', '&nbsp;&nbsp;')
+    .replaceAll('<-/', '&lt;/')
+    .replaceAll('<-', '&lt;')
+    .replaceAll('->', '&gt;')
     if (prevSelectQ) {
         prevSelectQ.classList.remove('select-question')
     }
